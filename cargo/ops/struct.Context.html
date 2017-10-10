@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Context` struct in crate `cargo`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Context">
+
+    <title>cargo::ops::Context - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Struct Context</p><div class="block items"><ul><li><a href="#fields">Fields</a></li><li><a href="#methods">Methods</a></li></ul></div><p class='location'><a href='../index.html'>cargo</a>::<wbr><a href='index.html'>ops</a></p><script>window.sidebarCurrent = {name: 'Context', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>cargo</a>::<wbr><a href='index.html'>ops</a>::<wbr><a class="struct" href=''>Context</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#64-102' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Context&lt;'a, 'cfg: 'a&gt; {
+    pub ws: &amp;'a <a class="struct" href="../../cargo/core/struct.Workspace.html" title="struct cargo::core::Workspace">Workspace</a>&lt;'cfg&gt;,
+    pub config: &amp;'cfg <a class="struct" href="../../cargo/util/config/struct.Config.html" title="struct cargo::util::config::Config">Config</a>,
+    pub resolve: &amp;'a <a class="struct" href="../../cargo/core/resolver/struct.Resolve.html" title="struct cargo::core::resolver::Resolve">Resolve</a>,
+    pub compilation: <a class="struct" href="../../cargo/ops/struct.Compilation.html" title="struct cargo::ops::Compilation">Compilation</a>&lt;'cfg&gt;,
+    pub packages: &amp;'a <a class="struct" href="../../cargo/core/package/struct.PackageSet.html" title="struct cargo::core::package::PackageSet">PackageSet</a>&lt;'cfg&gt;,
+    pub build_state: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;BuildState&gt;,
+    pub build_script_overridden: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/set/struct.HashSet.html" title="struct std::collections::hash::set::HashSet">HashSet</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a><a class="struct" href="../../cargo/core/package_id/struct.PackageId.html" title="struct cargo::core::package_id::PackageId">PackageId</a>, <a class="enum" href="../../cargo/ops/enum.Kind.html" title="enum cargo::ops::Kind">Kind</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>&gt;,
+    pub build_explicit_deps: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html" title="struct std::collections::hash::map::HashMap">HashMap</a>&lt;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;, BuildDeps&gt;,
+    pub fingerprints: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html" title="struct std::collections::hash::map::HashMap">HashMap</a>&lt;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;, <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;Fingerprint&gt;&gt;,
+    pub compiled: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/set/struct.HashSet.html" title="struct std::collections::hash::set::HashSet">HashSet</a>&lt;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;&gt;,
+    pub build_config: <a class="struct" href="../../cargo/ops/struct.BuildConfig.html" title="struct cargo::ops::BuildConfig">BuildConfig</a>,
+    pub build_scripts: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html" title="struct std::collections::hash::map::HashMap">HashMap</a>&lt;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;, <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;BuildScripts&gt;&gt;,
+    pub links: Links&lt;'a&gt;,
+    pub used_in_plugin: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/set/struct.HashSet.html" title="struct std::collections::hash::set::HashSet">HashSet</a>&lt;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;&gt;,
+    pub jobserver: <a class="struct" href="https://docs.rs/jobserver/0.1/jobserver/struct.Client.html" title="struct jobserver::Client">Client</a>,
+    // some fields omitted
+}</pre><div class='docblock'><p>The build context, containing all information about a build task</p>
+</div><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.ws" class="structfield small-section-header">
+                           <a href="#structfield.ws" class="anchor field"></a>
+                           <span id="ws.v" class='invisible'>
+                           <code>ws: &amp;'a <a class="struct" href="../../cargo/core/struct.Workspace.html" title="struct cargo::core::Workspace">Workspace</a>&lt;'cfg&gt;</code>
+                           </span></span><div class='docblock'><p>The workspace the build is for</p>
+</div><span id="structfield.config" class="structfield small-section-header">
+                           <a href="#structfield.config" class="anchor field"></a>
+                           <span id="config.v" class='invisible'>
+                           <code>config: &amp;'cfg <a class="struct" href="../../cargo/util/config/struct.Config.html" title="struct cargo::util::config::Config">Config</a></code>
+                           </span></span><div class='docblock'><p>The cargo configuration</p>
+</div><span id="structfield.resolve" class="structfield small-section-header">
+                           <a href="#structfield.resolve" class="anchor field"></a>
+                           <span id="resolve.v" class='invisible'>
+                           <code>resolve: &amp;'a <a class="struct" href="../../cargo/core/resolver/struct.Resolve.html" title="struct cargo::core::resolver::Resolve">Resolve</a></code>
+                           </span></span><div class='docblock'><p>The dependency graph for our build</p>
+</div><span id="structfield.compilation" class="structfield small-section-header">
+                           <a href="#structfield.compilation" class="anchor field"></a>
+                           <span id="compilation.v" class='invisible'>
+                           <code>compilation: <a class="struct" href="../../cargo/ops/struct.Compilation.html" title="struct cargo::ops::Compilation">Compilation</a>&lt;'cfg&gt;</code>
+                           </span></span><div class='docblock'><p>Information on the compilation output</p>
+</div><span id="structfield.packages" class="structfield small-section-header">
+                           <a href="#structfield.packages" class="anchor field"></a>
+                           <span id="packages.v" class='invisible'>
+                           <code>packages: &amp;'a <a class="struct" href="../../cargo/core/package/struct.PackageSet.html" title="struct cargo::core::package::PackageSet">PackageSet</a>&lt;'cfg&gt;</code>
+                           </span></span><span id="structfield.build_state" class="structfield small-section-header">
+                           <a href="#structfield.build_state" class="anchor field"></a>
+                           <span id="build_state.v" class='invisible'>
+                           <code>build_state: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;BuildState&gt;</code>
+                           </span></span><span id="structfield.build_script_overridden" class="structfield small-section-header">
+                           <a href="#structfield.build_script_overridden" class="anchor field"></a>
+                           <span id="build_script_overridden.v" class='invisible'>
+                           <code>build_script_overridden: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/set/struct.HashSet.html" title="struct std::collections::hash::set::HashSet">HashSet</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a><a class="struct" href="../../cargo/core/package_id/struct.PackageId.html" title="struct cargo::core::package_id::PackageId">PackageId</a>, <a class="enum" href="../../cargo/ops/enum.Kind.html" title="enum cargo::ops::Kind">Kind</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>&gt;</code>
+                           </span></span><span id="structfield.build_explicit_deps" class="structfield small-section-header">
+                           <a href="#structfield.build_explicit_deps" class="anchor field"></a>
+                           <span id="build_explicit_deps.v" class='invisible'>
+                           <code>build_explicit_deps: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html" title="struct std::collections::hash::map::HashMap">HashMap</a>&lt;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;, BuildDeps&gt;</code>
+                           </span></span><span id="structfield.fingerprints" class="structfield small-section-header">
+                           <a href="#structfield.fingerprints" class="anchor field"></a>
+                           <span id="fingerprints.v" class='invisible'>
+                           <code>fingerprints: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html" title="struct std::collections::hash::map::HashMap">HashMap</a>&lt;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;, <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;Fingerprint&gt;&gt;</code>
+                           </span></span><span id="structfield.compiled" class="structfield small-section-header">
+                           <a href="#structfield.compiled" class="anchor field"></a>
+                           <span id="compiled.v" class='invisible'>
+                           <code>compiled: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/set/struct.HashSet.html" title="struct std::collections::hash::set::HashSet">HashSet</a>&lt;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;&gt;</code>
+                           </span></span><span id="structfield.build_config" class="structfield small-section-header">
+                           <a href="#structfield.build_config" class="anchor field"></a>
+                           <span id="build_config.v" class='invisible'>
+                           <code>build_config: <a class="struct" href="../../cargo/ops/struct.BuildConfig.html" title="struct cargo::ops::BuildConfig">BuildConfig</a></code>
+                           </span></span><span id="structfield.build_scripts" class="structfield small-section-header">
+                           <a href="#structfield.build_scripts" class="anchor field"></a>
+                           <span id="build_scripts.v" class='invisible'>
+                           <code>build_scripts: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html" title="struct std::collections::hash::map::HashMap">HashMap</a>&lt;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;, <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;BuildScripts&gt;&gt;</code>
+                           </span></span><span id="structfield.links" class="structfield small-section-header">
+                           <a href="#structfield.links" class="anchor field"></a>
+                           <span id="links.v" class='invisible'>
+                           <code>links: Links&lt;'a&gt;</code>
+                           </span></span><span id="structfield.used_in_plugin" class="structfield small-section-header">
+                           <a href="#structfield.used_in_plugin" class="anchor field"></a>
+                           <span id="used_in_plugin.v" class='invisible'>
+                           <code>used_in_plugin: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/set/struct.HashSet.html" title="struct std::collections::hash::set::HashSet">HashSet</a>&lt;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;&gt;</code>
+                           </span></span><span id="structfield.jobserver" class="structfield small-section-header">
+                           <a href="#structfield.jobserver" class="anchor field"></a>
+                           <span id="jobserver.v" class='invisible'>
+                           <code>jobserver: <a class="struct" href="https://docs.rs/jobserver/0.1/jobserver/struct.Client.html" title="struct jobserver::Client">Client</a></code>
+                           </span></span>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl&lt;'a, 'cfg&gt; <a class="struct" href="../../cargo/ops/struct.Context.html" title="struct cargo::ops::Context">Context</a>&lt;'a, 'cfg&gt;</code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#131-1107' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>pub fn <a href='#method.new' class='fnname'>new</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;ws: &amp;'a <a class="struct" href="../../cargo/core/struct.Workspace.html" title="struct cargo::core::Workspace">Workspace</a>&lt;'cfg&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;resolve: &amp;'a <a class="struct" href="../../cargo/core/resolver/struct.Resolve.html" title="struct cargo::core::resolver::Resolve">Resolve</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;packages: &amp;'a <a class="struct" href="../../cargo/core/package/struct.PackageSet.html" title="struct cargo::core::package::PackageSet">PackageSet</a>&lt;'cfg&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;config: &amp;'cfg <a class="struct" href="../../cargo/util/config/struct.Config.html" title="struct cargo::util::config::Config">Config</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;build_config: <a class="struct" href="../../cargo/ops/struct.BuildConfig.html" title="struct cargo::ops::BuildConfig">BuildConfig</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;profiles: &amp;'a <a class="struct" href="../../cargo/core/manifest/struct.Profiles.html" title="struct cargo::core::manifest::Profiles">Profiles</a><br>) -&gt; <a class="type" href="../../cargo/util/errors/type.CargoResult.html" title="type cargo::util::errors::CargoResult">CargoResult</a>&lt;<a class="struct" href="../../cargo/ops/struct.Context.html" title="struct cargo::ops::Context">Context</a>&lt;'a, 'cfg&gt;&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#132-206' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.prepare' class="method"><span id='prepare.v' class='invisible'><code>pub fn <a href='#method.prepare' class='fnname'>prepare</a>(&amp;mut self) -&gt; <a class="type" href="../../cargo/util/errors/type.CargoResult.html" title="type cargo::util::errors::CargoResult">CargoResult</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#210-228' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Prepare this context, ensuring that all filesystem directories are in
+place.</p>
+</div><h4 id='method.probe_target_info' class="method"><span id='probe_target_info.v' class='invisible'><code>pub fn <a href='#method.probe_target_info' class='fnname'>probe_target_info</a>(&amp;mut self, units: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>) -&gt; <a class="type" href="../../cargo/util/errors/type.CargoResult.html" title="type cargo::util::errors::CargoResult">CargoResult</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#232-251' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Ensure that we&#39;ve collected all target-specific information to compile
+all the units mentioned in <code>units</code>.</p>
+</div><h4 id='method.build_used_in_plugin_map' class="method"><span id='build_used_in_plugin_map.v' class='invisible'><code>pub fn <a href='#method.build_used_in_plugin_map' class='fnname'>build_used_in_plugin_map</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;units: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a><br>) -&gt; <a class="type" href="../../cargo/util/errors/type.CargoResult.html" title="type cargo::util::errors::CargoResult">CargoResult</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#371-380' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Builds up the <code>used_in_plugin</code> internal to this context from the list of
+top-level units.</p>
+
+<p>This will recursively walk <code>units</code> and all of their dependencies to
+determine which crate are going to be used in plugins or not.</p>
+</div><h4 id='method.deps_dir' class="method"><span id='deps_dir.v' class='invisible'><code>pub fn <a href='#method.deps_dir' class='fnname'>deps_dir</a>(&amp;self, unit: &amp;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>) -&gt; &amp;<a class="struct" href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html" title="struct std::path::Path">Path</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#411-413' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the directories where Rust crate dependencies are found for the
+specified unit.</p>
+</div><h4 id='method.fingerprint_dir' class="method"><span id='fingerprint_dir.v' class='invisible'><code>pub fn <a href='#method.fingerprint_dir' class='fnname'>fingerprint_dir</a>(&amp;mut self, unit: &amp;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html" title="struct std::path::PathBuf">PathBuf</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#417-420' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the directory for the specified unit where fingerprint
+information is stored.</p>
+</div><h4 id='method.build_script_dir' class="method"><span id='build_script_dir.v' class='invisible'><code>pub fn <a href='#method.build_script_dir' class='fnname'>build_script_dir</a>(&amp;mut self, unit: &amp;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html" title="struct std::path::PathBuf">PathBuf</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#423-428' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the appropriate directory layout for either a plugin or not.</p>
+</div><h4 id='method.build_script_out_dir' class="method"><span id='build_script_out_dir.v' class='invisible'><code>pub fn <a href='#method.build_script_out_dir' class='fnname'>build_script_out_dir</a>(&amp;mut self, unit: &amp;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html" title="struct std::path::PathBuf">PathBuf</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#431-436' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the appropriate directory layout for either a plugin or not.</p>
+</div><h4 id='method.host_deps' class="method"><span id='host_deps.v' class='invisible'><code>pub fn <a href='#method.host_deps' class='fnname'>host_deps</a>(&amp;self) -&gt; &amp;<a class="struct" href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html" title="struct std::path::Path">Path</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#438-440' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.target_root' class="method"><span id='target_root.v' class='invisible'><code>pub fn <a href='#method.target_root' class='fnname'>target_root</a>(&amp;self) -&gt; &amp;<a class="struct" href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html" title="struct std::path::Path">Path</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#443-445' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Return the root of the build output tree</p>
+</div><h4 id='method.out_dir' class="method"><span id='out_dir.v' class='invisible'><code>pub fn <a href='#method.out_dir' class='fnname'>out_dir</a>(&amp;mut self, unit: &amp;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html" title="struct std::path::PathBuf">PathBuf</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#449-459' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the appropriate output directory for the specified package and
+target.</p>
+</div><h4 id='method.host_triple' class="method"><span id='host_triple.v' class='invisible'><code>pub fn <a href='#method.host_triple' class='fnname'>host_triple</a>(&amp;self) -&gt; &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#470-472' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Return the host triple for this context</p>
+</div><h4 id='method.target_triple' class="method"><span id='target_triple.v' class='invisible'><code>pub fn <a href='#method.target_triple' class='fnname'>target_triple</a>(&amp;self) -&gt; &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#475-477' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Return the target triple which this context is targeting.</p>
+</div><h4 id='method.requested_target' class="method"><span id='requested_target.v' class='invisible'><code>pub fn <a href='#method.requested_target' class='fnname'>requested_target</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#480-482' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Requested (not actual) target for the build</p>
+</div><h4 id='method.target_short_hash' class="method"><span id='target_short_hash.v' class='invisible'><code>pub fn <a href='#method.target_short_hash' class='fnname'>target_short_hash</a>(&amp;self, unit: &amp;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#486-489' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Get the short hash based only on the PackageId
+Used for the metadata when target_metadata returns None</p>
+</div><h4 id='method.target_metadata' class="method"><span id='target_metadata.v' class='invisible'><code>pub fn <a href='#method.target_metadata' class='fnname'>target_metadata</a>(&amp;mut self, unit: &amp;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;Metadata&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#495-503' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Get the metadata for a target in a specific profile
+We build to the path: &quot;{filename}-{target_metadata}&quot;
+We use a linking step to link/copy to a predictable filename
+like <code>target/debug/libfoo.{a,so,rlib}</code> and such.</p>
+</div><h4 id='method.file_stem' class="method"><span id='file_stem.v' class='invisible'><code>pub fn <a href='#method.file_stem' class='fnname'>file_stem</a>(&amp;mut self, unit: &amp;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#591-597' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the file stem for a given target/profile combo (with metadata)</p>
+</div><h4 id='method.link_stem' class="method"><span id='link_stem.v' class='invisible'><code>pub fn <a href='#method.link_stem' class='fnname'>link_stem</a>(&amp;mut self, unit: &amp;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a><a class="struct" href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html" title="struct std::path::PathBuf">PathBuf</a>, <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#616-643' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a tuple with the directory and name of the hard link we expect
+our target to be copied to. Eg, file_stem may be out_dir/deps/foo-abcdef
+and link_stem would be out_dir/foo
+This function returns it in two parts so the caller can add prefix/suffix
+to filename separately</p>
+
+<p>Returns an Option because in some cases we don&#39;t want to link
+(eg a dependent lib)</p>
+</div><h4 id='method.target_filenames' class="method"><span id='target_filenames.v' class='invisible'><code>pub fn <a href='#method.target_filenames' class='fnname'>target_filenames</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;unit: &amp;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;<br>) -&gt; <a class="type" href="../../cargo/util/errors/type.CargoResult.html" title="type cargo::util::errors::CargoResult">CargoResult</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html" title="struct alloc::arc::Arc">Arc</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a><a class="struct" href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html" title="struct std::path::PathBuf">PathBuf</a>, <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/path/struct.PathBuf.html" title="struct std::path::PathBuf">PathBuf</a>&gt;, <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>&gt;&gt;&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#651-662' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Return the filenames that the given target for the given profile will
+generate as a list of 3-tuples (filename, link_dst, linkable)</p>
+
+<ul>
+<li>filename: filename rustc compiles to. (Often has metadata suffix).</li>
+<li>link_dst: Optional file to link/copy the result to (without metadata suffix)</li>
+<li>linkable: Whether possible to link against file (eg it&#39;s a library)</li>
+</ul>
+</div><h4 id='method.dep_targets' class="method"><span id='dep_targets.v' class='invisible'><code>pub fn <a href='#method.dep_targets' class='fnname'>dep_targets</a>(&amp;self, unit: &amp;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;) -&gt; <a class="type" href="../../cargo/util/errors/type.CargoResult.html" title="type cargo::util::errors::CargoResult">CargoResult</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;&gt;&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#771-869' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>For a package, return all targets which are registered as dependencies
+for that package.</p>
+</div><h4 id='method.dep_run_custom_build' class="method"><span id='dep_run_custom_build.v' class='invisible'><code>pub fn <a href='#method.dep_run_custom_build' class='fnname'>dep_run_custom_build</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;unit: &amp;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;<br>) -&gt; <a class="type" href="../../cargo/util/errors/type.CargoResult.html" title="type cargo::util::errors::CargoResult">CargoResult</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>&lt;'a&gt;&gt;&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#875-909' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the dependencies needed to run a build script.</p>
+
+<p>The <code>unit</code> provided must represent an execution of a build script, and
+the returned set of units must all be run before <code>unit</code> is run.</p>
+</div><h4 id='method.get_package' class="method"><span id='get_package.v' class='invisible'><code>pub fn <a href='#method.get_package' class='fnname'>get_package</a>(&amp;self, id: &amp;<a class="struct" href="../../cargo/core/package_id/struct.PackageId.html" title="struct cargo::core::package_id::PackageId">PackageId</a>) -&gt; <a class="type" href="../../cargo/util/errors/type.CargoResult.html" title="type cargo::util::errors::CargoResult">CargoResult</a>&lt;&amp;'a <a class="struct" href="../../cargo/core/package/struct.Package.html" title="struct cargo::core::package::Package">Package</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#1007-1009' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Gets a package for the given package id.</p>
+</div><h4 id='method.linker' class="method"><span id='linker.v' class='invisible'><code>pub fn <a href='#method.linker' class='fnname'>linker</a>(&amp;self, kind: <a class="enum" href="../../cargo/ops/enum.Kind.html" title="enum cargo::ops::Kind">Kind</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="struct" href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html" title="struct std::path::Path">Path</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#1012-1014' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Get the user-specified linker for a particular host or target</p>
+</div><h4 id='method.ar' class="method"><span id='ar.v' class='invisible'><code>pub fn <a href='#method.ar' class='fnname'>ar</a>(&amp;self, kind: <a class="enum" href="../../cargo/ops/enum.Kind.html" title="enum cargo::ops::Kind">Kind</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="struct" href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html" title="struct std::path::Path">Path</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#1017-1019' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Get the user-specified <code>ar</code> program for a particular host or target</p>
+</div><h4 id='method.cfg' class="method"><span id='cfg.v' class='invisible'><code>pub fn <a href='#method.cfg' class='fnname'>cfg</a>(&amp;self, kind: <a class="enum" href="../../cargo/ops/enum.Kind.html" title="enum cargo::ops::Kind">Kind</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="enum" href="../../cargo/util/enum.Cfg.html" title="enum cargo::util::Cfg">Cfg</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#1022-1028' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Get the list of cfg printed out from the compiler for the specified kind</p>
+</div><h4 id='method.jobs' class="method"><span id='jobs.v' class='invisible'><code>pub fn <a href='#method.jobs' class='fnname'>jobs</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#1039' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Number of jobs specified for this build</p>
+</div><h4 id='method.lib_profile' class="method"><span id='lib_profile.v' class='invisible'><code>pub fn <a href='#method.lib_profile' class='fnname'>lib_profile</a>(&amp;self) -&gt; &amp;'a <a class="struct" href="../../cargo/core/manifest/struct.Profile.html" title="struct cargo::core::manifest::Profile">Profile</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#1041-1052' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.lib_or_check_profile' class="method"><span id='lib_or_check_profile.v' class='invisible'><code>pub fn <a href='#method.lib_or_check_profile' class='fnname'>lib_or_check_profile</a>(&amp;self, unit: &amp;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>, target: &amp;<a class="struct" href="../../cargo/core/manifest/struct.Target.html" title="struct cargo::core::manifest::Target">Target</a>) -&gt; &amp;'a <a class="struct" href="../../cargo/core/manifest/struct.Profile.html" title="struct cargo::core::manifest::Profile">Profile</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#1054-1060' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.build_script_profile' class="method"><span id='build_script_profile.v' class='invisible'><code>pub fn <a href='#method.build_script_profile' class='fnname'>build_script_profile</a>(&amp;self, _pkg: &amp;<a class="struct" href="../../cargo/core/package_id/struct.PackageId.html" title="struct cargo::core::package_id::PackageId">PackageId</a>) -&gt; &amp;'a <a class="struct" href="../../cargo/core/manifest/struct.Profile.html" title="struct cargo::core::manifest::Profile">Profile</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#1062-1066' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.incremental_args' class="method"><span id='incremental_args.v' class='invisible'><code>pub fn <a href='#method.incremental_args' class='fnname'>incremental_args</a>(&amp;self, unit: &amp;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>) -&gt; <a class="type" href="../../cargo/util/errors/type.CargoResult.html" title="type cargo::util::errors::CargoResult">CargoResult</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#1068-1087' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.rustflags_args' class="method"><span id='rustflags_args.v' class='invisible'><code>pub fn <a href='#method.rustflags_args' class='fnname'>rustflags_args</a>(&amp;self, unit: &amp;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>) -&gt; <a class="type" href="../../cargo/util/errors/type.CargoResult.html" title="type cargo::util::errors::CargoResult">CargoResult</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#1089-1091' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.rustdocflags_args' class="method"><span id='rustdocflags_args.v' class='invisible'><code>pub fn <a href='#method.rustdocflags_args' class='fnname'>rustdocflags_args</a>(&amp;self, unit: &amp;<a class="struct" href="../../cargo/ops/struct.Unit.html" title="struct cargo::ops::Unit">Unit</a>) -&gt; <a class="type" href="../../cargo/util/errors/type.CargoResult.html" title="type cargo::util::errors::CargoResult">CargoResult</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#1093-1095' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.show_warnings' class="method"><span id='show_warnings.v' class='invisible'><code>pub fn <a href='#method.show_warnings' class='fnname'>show_warnings</a>(&amp;self, pkg: &amp;<a class="struct" href="../../cargo/core/package_id/struct.PackageId.html" title="struct cargo::core::package_id::PackageId">PackageId</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/cargo/ops/cargo_rustc/context.rs.html#1097-1099' title='goto source code'>[src]</a></span></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "cargo";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

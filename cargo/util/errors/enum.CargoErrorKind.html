@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `CargoErrorKind` enum in crate `cargo`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, CargoErrorKind">
+
+    <title>cargo::util::errors::CargoErrorKind - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc enum">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Enum CargoErrorKind</p><div class="block items"><ul><li><a href="#variants">Variants</a></li><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../../index.html'>cargo</a>::<wbr><a href='../index.html'>util</a>::<wbr><a href='index.html'>errors</a></p><script>window.sidebarCurrent = {name: 'CargoErrorKind', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Enum <a href='../../index.html'>cargo</a>::<wbr><a href='../index.html'>util</a>::<wbr><a href='index.html'>errors</a>::<wbr><a class="enum" href=''>CargoErrorKind</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span></span></h1>
+<pre class='rust enum'>pub enum CargoErrorKind {
+    Msg(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>),
+    CrateRegistry(ErrorKind),
+    ParseSemver(ReqParseError),
+    Semver(SemVerError),
+    Ignore(Error),
+    Io(<a class="struct" href="https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html" title="struct std::io::error::Error">Error</a>),
+    SerdeJson(<a class="struct" href="https://docs.rs/serde_json/1.0.3/serde_json/error/struct.Error.html" title="struct serde_json::error::Error">Error</a>),
+    TomlSer(<a class="enum" href="https://docs.rs/toml/0.4/toml/ser/enum.Error.html" title="enum toml::ser::Error">Error</a>),
+    TomlDe(<a class="struct" href="https://docs.rs/toml/0.4/toml/de/struct.Error.html" title="struct toml::de::Error">Error</a>),
+    ParseInt(<a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.ParseIntError.html" title="struct core::num::ParseIntError">ParseIntError</a>),
+    ParseBool(<a class="struct" href="https://doc.rust-lang.org/nightly/core/str/struct.ParseBoolError.html" title="struct core::str::ParseBoolError">ParseBoolError</a>),
+    Parse(<a class="enum" href="https://doc.rust-lang.org/nightly/alloc/string/enum.ParseError.html" title="enum alloc::string::ParseError">ParseError</a>),
+    Git(<a class="struct" href="https://docs.rs/git2/0.6/git2/error/struct.Error.html" title="struct git2::error::Error">Error</a>),
+    Curl(<a class="struct" href="https://docs.rs/curl/0.4/curl/error/struct.Error.html" title="struct curl::error::Error">Error</a>),
+    Internal(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="enum" href="../../../cargo/util/errors/enum.CargoErrorKind.html" title="enum cargo::util::errors::CargoErrorKind">CargoErrorKind</a>&gt;),
+    ProcessErrorKind(<a class="struct" href="../../../cargo/util/errors/struct.ProcessError.html" title="struct cargo::util::errors::ProcessError">ProcessError</a>),
+    CargoTestErrorKind(<a class="struct" href="../../../cargo/util/errors/struct.CargoTestError.html" title="struct cargo::util::errors::CargoTestError">CargoTestError</a>),
+    HttpNot200(<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>,&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>),
+    // some variants omitted
+}</pre><div class='docblock'><p>The kind of an error.</p>
+</div><h2 id='variants' class='variants small-section-header'>
+                   Variants<a href='#variants' class='anchor'></a></h2>
+<span id="variant.Msg" class="variant small-section-header"><a href="#variant.Msg" class="anchor field"></a><span id='Msg.v' class='invisible'><code>Msg(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>)</code></span></span><div class='docblock'><p>A convenient variant for String.</p>
+</div><span id="variant.CrateRegistry" class="variant small-section-header"><a href="#variant.CrateRegistry" class="anchor field"></a><span id='CrateRegistry.v' class='invisible'><code>CrateRegistry(ErrorKind)</code></span></span><span id="variant.ParseSemver" class="variant small-section-header"><a href="#variant.ParseSemver" class="anchor field"></a><span id='ParseSemver.v' class='invisible'><code>ParseSemver(ReqParseError)</code></span></span><span id="variant.Semver" class="variant small-section-header"><a href="#variant.Semver" class="anchor field"></a><span id='Semver.v' class='invisible'><code>Semver(SemVerError)</code></span></span><span id="variant.Ignore" class="variant small-section-header"><a href="#variant.Ignore" class="anchor field"></a><span id='Ignore.v' class='invisible'><code>Ignore(Error)</code></span></span><span id="variant.Io" class="variant small-section-header"><a href="#variant.Io" class="anchor field"></a><span id='Io.v' class='invisible'><code>Io(<a class="struct" href="https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html" title="struct std::io::error::Error">Error</a>)</code></span></span><span id="variant.SerdeJson" class="variant small-section-header"><a href="#variant.SerdeJson" class="anchor field"></a><span id='SerdeJson.v' class='invisible'><code>SerdeJson(<a class="struct" href="https://docs.rs/serde_json/1.0.3/serde_json/error/struct.Error.html" title="struct serde_json::error::Error">Error</a>)</code></span></span><span id="variant.TomlSer" class="variant small-section-header"><a href="#variant.TomlSer" class="anchor field"></a><span id='TomlSer.v' class='invisible'><code>TomlSer(<a class="enum" href="https://docs.rs/toml/0.4/toml/ser/enum.Error.html" title="enum toml::ser::Error">Error</a>)</code></span></span><span id="variant.TomlDe" class="variant small-section-header"><a href="#variant.TomlDe" class="anchor field"></a><span id='TomlDe.v' class='invisible'><code>TomlDe(<a class="struct" href="https://docs.rs/toml/0.4/toml/de/struct.Error.html" title="struct toml::de::Error">Error</a>)</code></span></span><span id="variant.ParseInt" class="variant small-section-header"><a href="#variant.ParseInt" class="anchor field"></a><span id='ParseInt.v' class='invisible'><code>ParseInt(<a class="struct" href="https://doc.rust-lang.org/nightly/core/num/struct.ParseIntError.html" title="struct core::num::ParseIntError">ParseIntError</a>)</code></span></span><span id="variant.ParseBool" class="variant small-section-header"><a href="#variant.ParseBool" class="anchor field"></a><span id='ParseBool.v' class='invisible'><code>ParseBool(<a class="struct" href="https://doc.rust-lang.org/nightly/core/str/struct.ParseBoolError.html" title="struct core::str::ParseBoolError">ParseBoolError</a>)</code></span></span><span id="variant.Parse" class="variant small-section-header"><a href="#variant.Parse" class="anchor field"></a><span id='Parse.v' class='invisible'><code>Parse(<a class="enum" href="https://doc.rust-lang.org/nightly/alloc/string/enum.ParseError.html" title="enum alloc::string::ParseError">ParseError</a>)</code></span></span><span id="variant.Git" class="variant small-section-header"><a href="#variant.Git" class="anchor field"></a><span id='Git.v' class='invisible'><code>Git(<a class="struct" href="https://docs.rs/git2/0.6/git2/error/struct.Error.html" title="struct git2::error::Error">Error</a>)</code></span></span><span id="variant.Curl" class="variant small-section-header"><a href="#variant.Curl" class="anchor field"></a><span id='Curl.v' class='invisible'><code>Curl(<a class="struct" href="https://docs.rs/curl/0.4/curl/error/struct.Error.html" title="struct curl::error::Error">Error</a>)</code></span></span><span id="variant.Internal" class="variant small-section-header"><a href="#variant.Internal" class="anchor field"></a><span id='Internal.v' class='invisible'><code>Internal(<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="enum" href="../../../cargo/util/errors/enum.CargoErrorKind.html" title="enum cargo::util::errors::CargoErrorKind">CargoErrorKind</a>&gt;)</code></span></span><span id="variant.ProcessErrorKind" class="variant small-section-header"><a href="#variant.ProcessErrorKind" class="anchor field"></a><span id='ProcessErrorKind.v' class='invisible'><code>ProcessErrorKind(<a class="struct" href="../../../cargo/util/errors/struct.ProcessError.html" title="struct cargo::util::errors::ProcessError">ProcessError</a>)</code></span></span><span id="variant.CargoTestErrorKind" class="variant small-section-header"><a href="#variant.CargoTestErrorKind" class="anchor field"></a><span id='CargoTestErrorKind.v' class='invisible'><code>CargoTestErrorKind(<a class="struct" href="../../../cargo/util/errors/struct.CargoTestError.html" title="struct cargo::util::errors::CargoTestError">CargoTestError</a>)</code></span></span><span id="variant.HttpNot200" class="variant small-section-header"><a href="#variant.HttpNot200" class="anchor field"></a><span id='HttpNot200.v' class='invisible'><code>HttpNot200(<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>,&nbsp;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>)</code></span></span>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="enum" href="../../../cargo/util/errors/enum.CargoErrorKind.html" title="enum cargo::util::errors::CargoErrorKind">CargoErrorKind</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.description' class="method"><span id='description.v' class='invisible'><code>pub fn <a href='#method.description' class='fnname'>description</a>(&amp;self) -&gt; &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a></code></span></h4>
+<div class='docblock'><p>A string describing the error kind.</p>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="enum" href="../../../cargo/util/errors/enum.CargoErrorKind.html" title="enum cargo::util::errors::CargoErrorKind">CargoErrorKind</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 id='impl-Display' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a> for <a class="enum" href="../../../cargo/util/errors/enum.CargoErrorKind.html" title="enum cargo::util::errors::CargoErrorKind">CargoErrorKind</a></code><a href='#impl-Display' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.fmt-1' class="method"><span id='fmt.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, fmt: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt">Read more</a></p>
+</div></div><h3 id='impl-From&lt;ErrorKind&gt;' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;ErrorKind&gt; for <a class="enum" href="../../../cargo/util/errors/enum.CargoErrorKind.html" title="enum cargo::util::errors::CargoErrorKind">CargoErrorKind</a></code><a href='#impl-From&lt;ErrorKind&gt;' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.from' class="method"><span id='from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(e: ErrorKind) -&gt; Self</code></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 id='impl-From&lt;&amp;&#39;a str&gt;' class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;&amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt; for <a class="enum" href="../../../cargo/util/errors/enum.CargoErrorKind.html" title="enum cargo::util::errors::CargoErrorKind">CargoErrorKind</a></code><a href='#impl-From&lt;&amp;&#39;a str&gt;' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.from-1' class="method"><span id='from.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(s: &amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; Self</code></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 id='impl-From&lt;String&gt;' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt; for <a class="enum" href="../../../cargo/util/errors/enum.CargoErrorKind.html" title="enum cargo::util::errors::CargoErrorKind">CargoErrorKind</a></code><a href='#impl-From&lt;String&gt;' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.from-2' class="method"><span id='from.v-2' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(s: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>) -&gt; Self</code></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 id='impl-From&lt;CargoError&gt;' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;<a class="struct" href="../../../cargo/util/errors/struct.CargoError.html" title="struct cargo::util::errors::CargoError">CargoError</a>&gt; for <a class="enum" href="../../../cargo/util/errors/enum.CargoErrorKind.html" title="enum cargo::util::errors::CargoErrorKind">CargoErrorKind</a></code><a href='#impl-From&lt;CargoError&gt;' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.from-3' class="method"><span id='from.v-3' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(e: <a class="struct" href="../../../cargo/util/errors/struct.CargoError.html" title="struct cargo::util::errors::CargoError">CargoError</a>) -&gt; Self</code></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "cargo";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>
